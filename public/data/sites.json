@@ -1,27 +1,27 @@
 [
   {
-    "id": "git",
-    "name": "Справочник по Git и GitHub",
-    "url": "https://maximbytecamp.github.io/git_github_makarov/"
+    "id": "madagaskar-monitor",
+    "name": "Мониторинг сайтов · madagaskarvb",
+    "url": "https://madagaskarvb.github.io/monitoring/"
   },
   {
-    "id": "mongodb",
-    "name": "Справочник по MongoDB",
-    "url": "https://maximbytecamp.github.io/mongodb_theory_makarov/"
+    "id": "lebron",
+    "name": "LeBron James Ventures",
+    "url": "https://madagaskarvb.github.io/LebronGlaze/pages/index.html"
   },
   {
-    "id": "english",
-    "name": "Разговорный английский",
-    "url": "https://maximbytecamp.github.io/english_makarov/"
+    "id": "desai-monitor",
+    "name": "Мониторинг сайтов · Desai0",
+    "url": "https://desai0.github.io/monitoring/"
   },
   {
-    "id": "sysprog",
-    "name": "Системное программирование",
-    "url": "https://maximbytecamp.github.io/sysprog_makarov/"
+    "id": "chromasync",
+    "name": "ChromaSync",
+    "url": "https://desai0.github.io/ChromaSync/"
   },
   {
-    "id": "sphinx",
-    "name": "Отчёт кафе на Sphinx",
-    "url": "https://maximbytecamp.github.io/otchet-kafe-sphinx/"
+    "id": "vysota",
+    "name": "Футбольная секция «Высота»",
+    "url": "https://duckiexd.github.io/web-uknow/"
   }
 ]
