@@ -43,3 +43,8 @@ td small { display: block; }
   nav a { padding: 6px 10px; }
   main { padding-top: 28px; }
 }
+
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin: 0 0 18px; }
+.filters label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.filters input[type="search"] { max-width: 100%; font: inherit; padding: 6px 10px; border: 1px solid #65776b; border-radius: 5px; }
+.filters input:focus-visible { outline: 3px solid #146050; outline-offset: 2px; }

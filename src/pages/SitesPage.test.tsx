@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router'
 import { describe, expect, it } from 'vitest'
 import { MonitoringContext, type Monitoring } from '../monitoring'
@@ -67,5 +68,33 @@ describe('SitesPage', () => {
   it('проверок ещё не было', () => {
     show({ history: [] })
     expect(screen.getByRole('heading', { name: 'Проверок ещё не было' })).toBeInTheDocument()
+  })
+
+  it('поиск react оставляет одну карточку', async () => {
+    const user = userEvent.setup()
+    show({})
+    await user.type(screen.getByLabelText('Поиск по названию'), ' ReAcT ')
+    expect(screen.getByText('Справочник по React')).toBeInTheDocument()
+    expect(screen.queryByText('Справочник по Git')).not.toBeInTheDocument()
+    expect(screen.queryByText('Задачник по SQL')).not.toBeInTheDocument()
+  })
+
+  it('флажок Только неработающие оставляет одну карточку', async () => {
+    const user = userEvent.setup()
+    show({ sites: [...sites, { id: 'new', name: 'Без проверки', url: 'https://example.org/new' }] })
+    await user.click(screen.getByLabelText('Только неработающие'))
+    expect(screen.queryByText('Без проверки')).not.toBeInTheDocument()
+    expect(screen.getByText('Не открываются: 1 из 4')).toBeInTheDocument()
+    expect(screen.getByText('Справочник по React')).toBeInTheDocument()
+    expect(screen.queryByText('Справочник по Git')).not.toBeInTheDocument()
+    expect(screen.queryByText('Задачник по SQL')).not.toBeInTheDocument()
+  })
+
+  it('поиск git с флажком показывает Сайтов не найдено', async () => {
+    const user = userEvent.setup()
+    show({})
+    await user.type(screen.getByLabelText('Поиск по названию'), 'git')
+    await user.click(screen.getByLabelText('Только неработающие'))
+    expect(screen.getByText('Сайтов не найдено')).toBeInTheDocument()
   })
 })
