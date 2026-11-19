@@ -45,5 +45,6 @@ describe('App', () => {
     expect(heading).toBeInTheDocument()
     const text = screen.getByText('1 из 2')
     expect(text).toBeInTheDocument()
+    expect(document.title).toBe('Справочник по React · Мониторинг сайтов группы')
   })
 })

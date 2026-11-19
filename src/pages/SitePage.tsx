@@ -1,3 +1,4 @@
+import { usePageTitle } from '../usePageTitle'
 import { Link, useParams } from 'react-router'
 import { useMonitoring } from '../monitoring'
 import { formatTime } from '../status'
@@ -7,6 +8,7 @@ export default function SitePage() {
   const { sites, history } = useMonitoring()
   const { id } = useParams()
   const site = sites.find((item) => item.id === id)
+  usePageTitle(site?.name ?? 'Сайта нет в списке')
   if (!site) return <NotFoundPage site />
 
   const rows = history.flatMap((run) => {

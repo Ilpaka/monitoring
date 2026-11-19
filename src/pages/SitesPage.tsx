@@ -1,9 +1,11 @@
+import { usePageTitle } from '../usePageTitle'
 import { Link } from 'react-router'
 import { useMonitoring } from '../monitoring'
 import { sitesWord } from '../plural'
 import { statusText } from '../status'
 
 export default function SitesPage() {
+  usePageTitle('Сайты')
   const { sites, history } = useMonitoring()
   const last = history[0]
   const current = sites.map((site) => ({ site, check: last?.checks.find((c) => c.id === site.id) }))
@@ -27,8 +29,8 @@ export default function SitesPage() {
         {current.map(({ site, check }) => (
           <li key={site.id}>
             <Link className="site" to={`/site/${site.id}`}>
-              <span className={'status ' + (!check ? 'unknown' : check.ok ? 'ok' : 'bad')}>{statusText(check)}</span>
               <h3>{site.name}</h3>
+              <span className={'status ' + (!check ? 'unknown' : check.ok ? 'ok' : 'bad')}>{statusText(check)}</span>
               <span className="address">{new URL(site.url).hostname}</span>
               <span className="card-foot"><span>История →</span></span>
             </Link>

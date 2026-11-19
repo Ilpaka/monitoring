@@ -1,6 +1,8 @@
+import { usePageTitle } from '../usePageTitle'
 import { useMonitoring } from '../monitoring'
 
 export default function AboutPage() {
+  usePageTitle('О проверке')
   const { history } = useMonitoring()
   return (
     <section className="about">

@@ -53,6 +53,12 @@ describe('SitesPage', () => {
     show({ loading: true })
     expect(screen.getByRole('status')).toHaveTextContent('Загрузка результатов…')
   })
+  it('название карточки начинается с названия сайта', () => {
+    show({})
+    const link = screen.getByRole('link', { name: /^Справочник по React/ })
+    expect(link).toBeInTheDocument()
+  })
+
   it('все сайты открываются', () => {
     show({ history: [{ ...run, checks: run.checks.map((c) => ({ ...c, ok: true })) }] })
     expect(screen.getByText('Все 3 сайта открываются')).toBeInTheDocument()
