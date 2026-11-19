@@ -1,0 +1,17 @@
+import { createContext, useContext } from 'react'
+import type { Run, Site } from './types'
+
+type Monitoring = {
+  sites: Site[]
+  history: Run[]
+  loading: boolean
+  error: string
+}
+
+export const MonitoringContext = createContext<Monitoring | null>(null)
+
+export function useMonitoring() {
+  const value = useContext(MonitoringContext)
+  if (!value) throw new Error('useMonitoring вызван вне MonitoringProvider')
+  return value
+}
