@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react'
 import type { Run, Site } from './types'
 
-type Monitoring = {
+export type Monitoring = {
   sites: Site[]
   history: Run[]
   loading: boolean

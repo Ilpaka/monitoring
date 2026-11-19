@@ -2,7 +2,8 @@ import type { Check } from './types'
 
 export function statusText(check?: Check) {
   if (!check) return 'Нет проверки'
-  return check.ok ? 'Работает' : 'Не открывается'
+  if (check.ok) return `Работает · ${check.ms} мс`
+  return `Не открывается · ${check.status || check.error || 'нет ответа'}`
 }
 
 const moscowTime = new Intl.DateTimeFormat('ru-RU', {

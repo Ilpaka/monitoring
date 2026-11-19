@@ -35,6 +35,8 @@ jobs:
         run: npm ci
       - name: Проверить код
         run: npm run lint
+      - name: Проверить поведение приложения
+        run: npm test
       - name: Собрать сайт
         run: npm run build
       - name: Прямые ссылки на страницы приложения

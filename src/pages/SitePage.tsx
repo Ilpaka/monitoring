@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router'
 import { useMonitoring } from '../monitoring'
-import { formatTime, statusText } from '../status'
+import { formatTime } from '../status'
 import NotFoundPage from './NotFoundPage'
 
 export default function SitePage() {
@@ -28,7 +28,7 @@ export default function SitePage() {
           <tbody>{rows.map(({ time, check }) => (
             <tr key={time} className={check.ok ? '' : 'failure'}>
               <td><time dateTime={time}>{formatTime(time)}</time></td>
-              <td>{statusText(check)}{check.error && <small>{check.error}</small>}</td>
+              <td>{check.ok ? 'Работает' : 'Не открывается'}{check.error && <small>{check.error}</small>}</td>
               <td>{check.status || '—'}</td><td>{check.ms} мс</td>
             </tr>
           ))}</tbody>

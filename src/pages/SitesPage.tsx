@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { useMonitoring } from '../monitoring'
+import { sitesWord } from '../plural'
 import { statusText } from '../status'
 
 export default function SitesPage() {
@@ -9,7 +10,7 @@ export default function SitesPage() {
   const failed = current.filter(({ check }) => check && !check.ok).length
   const unknown = current.filter(({ check }) => !check).length
 
-  let summary = `Все ${sites.length} сайтов открываются`
+  let summary = sites.length === 1 ? '1 сайт открывается' : `Все ${sites.length} ${sitesWord(sites.length)} открываются`
   if (!sites.length) summary = 'Список сайтов пуст'
   else if (!last) summary = 'Проверок ещё не было'
   else if (failed) summary = `Не открываются: ${failed} из ${sites.length}`
@@ -29,7 +30,7 @@ export default function SitesPage() {
               <span className={'status ' + (!check ? 'unknown' : check.ok ? 'ok' : 'bad')}>{statusText(check)}</span>
               <h3>{site.name}</h3>
               <span className="address">{new URL(site.url).hostname}</span>
-              <span className="card-foot"><span>{check ? `${check.ms} мс` : '—'}</span><span>История →</span></span>
+              <span className="card-foot"><span>История →</span></span>
             </Link>
           </li>
         ))}
