@@ -1,3 +1,44 @@
 {
-  "history": []
+  "history": [
+    {
+      "time": "2026-11-19T14:06:15.243Z",
+      "checks": [
+        {
+          "id": "git",
+          "ok": true,
+          "status": 200,
+          "ms": 391,
+          "error": ""
+        },
+        {
+          "id": "mongodb",
+          "ok": true,
+          "status": 200,
+          "ms": 192,
+          "error": ""
+        },
+        {
+          "id": "english",
+          "ok": true,
+          "status": 200,
+          "ms": 142,
+          "error": ""
+        },
+        {
+          "id": "sysprog",
+          "ok": true,
+          "status": 200,
+          "ms": 282,
+          "error": ""
+        },
+        {
+          "id": "sphinx",
+          "ok": true,
+          "status": 200,
+          "ms": 339,
+          "error": ""
+        }
+      ]
+    }
+  ]
 }
